@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h3 class="#0097a7 cyan-text text-darken-2">{{ article.title }}</h3>
+    <p>
+        By <a class="#1a237e indigo-text text-darken-4" href="{% url 'author' article.author.pk %}">
+               {{ article.author.first_name }} {{ article.author.last_name }}
+           </a>
+        {{ article.created_at }}
+    </p>
+    <p>
+        {{article.content}}
+    </p>
+{% endblock %}
+

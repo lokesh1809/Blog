@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h3 class="#0097a7 cyan-text text-darken-2">Articles by {{ author.first_name }} {{ author.last_name }} </h3>
+    <ul>
+        {% for article in author.article_set.all %}
+        <p>
+            <a class="#1a237e indigo-text text-darken-4" href="{% url 'article' article.pk %}">{{ article.title }}</a>
+        </p>
+            
+        {% endfor %}
+    </ul>
+{% endblock %}
+

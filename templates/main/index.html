@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <h3 class="#00796b teal-text text-darken-2" >Recent Articles</h3>
+    </div>
+    
+    
+    {% for article in latest_articles %}
+        <h3><a href="{% url 'article' article.pk %}"><span class="#0097a7 cyan-text text-darken-2">{{ article.title }}</span></a></h1>
+        <p>
+            By <a class="#1a237e indigo-text text-darken-4" href="{% url 'author' article.author.pk %}">
+                {{ article.author.first_name }} {{ article.author.last_name }}
+               </a> 
+        </p>
+        <div>
+            {{ article.created_at }}
+        </div>
+        <p>{{ article.content| truncatechars:256 | linebreaksbr }}</p>
+    {% endfor %}
+
+{% endblock %}
+
+
+

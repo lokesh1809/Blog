@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h3 class="#0097a7 cyan-text text-darken-2" >Create new article</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+{% endblock %}
